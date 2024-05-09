@@ -3,8 +3,8 @@ import { getLikedPostsCtr, GetPostsCtr, createPostCtr, updateLikeCtr, updatePost
 
 const postRouter = Router()
 
-postRouter.get("/", getLikedPostsCtr)
-postRouter.get("/likes", GetPostsCtr)
+postRouter.get("/", GetPostsCtr)
+postRouter.get("/likes", getLikedPostsCtr)
 postRouter.post("/post", createPostCtr)
 postRouter.patch("/post/:id", updatePostCtr)
 postRouter.post("/post/:id/like", updateLikeCtr)

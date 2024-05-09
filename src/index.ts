@@ -1,20 +1,24 @@
-import express from "express";
-import envConfig from "./config/dotenv.config";
-import postRouter from "./routers/posts.route";
-import userRouter from "./routers/users.route";
-import cookieP from "cookie-parser"
-import logger, {loggerMidleware} from "./config/logger.config";
+import app from "./app"
+import envConfig from "./config/dotenv.config"
+import logger from "./config/logger.config"
+import DAO from "./dao/factory"
 
-const app = express()
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(cookieP(envConfig.SECRET_COOKIE))
 
-app.use(loggerMidleware)
-app.use(userRouter)
-app.use(postRouter)
+
+
+
+
+
+
+['SIGING', 'SIGTERM', 'SIGQUIT']
+    .forEach((signal) => process.on(signal, async()=>{
+            await DAO.close()
+            process.exit(0)
+        })
+    )
+
 
 const port = envConfig.PORT
 app.listen(port, () => logger.info(`Escuchando al puerto ${port}`))
 
-export default app
+ 
