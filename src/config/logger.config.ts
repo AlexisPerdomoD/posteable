@@ -39,7 +39,7 @@ envConfig.MODE === "PRO"
     }))
 
 export const loggerMidleware = (req:Request, _res:Response, next:Function)=>{
-    logger.http(`${req.method} request in http://${req.headers.host} - ${new Date().toLocaleTimeString()}`)
+    logger.http(`${req.method} request in http://${req.headers.host}${req.originalUrl} - ${new Date().toLocaleTimeString()}`)
     next()
 }
 

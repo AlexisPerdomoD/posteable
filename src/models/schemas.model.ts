@@ -9,7 +9,6 @@ export const postSchema = z.object({
 });
 export type PostInfo = z.infer<typeof postSchema>
 export type Post = PostInfo & {id:number}
-
 export type FormatedPost = {
     id:number,
     content:string,
@@ -18,18 +17,16 @@ export type FormatedPost = {
     username:string,
     likesCount:number
 }
-
-// Esquema para la tabla 'likes'
+// 'likes'
 export const likeSchema = z.object({
     createdAt: z.date().default(new Date()),
     user_id: z.number().int(),
     post_id: z.number().int(),
 });
 export type Like = z.infer<typeof likeSchema>
-
+//users
 // regex for password 
 const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-//users
 export const userSquema = z.object({
     username: z.string().max(50),
     password: z.string().max(50).regex(regex),
@@ -40,7 +37,6 @@ export const userSquema = z.object({
     createdAt:z.date().default(new Date()),
     updatedAt:z.date().default(new Date()),
 })
-
 export const userUpdatesSchema = z.object({
     username: z.string().max(50).optional(),
     password: z.string().max(50).regex(regex).optional(),

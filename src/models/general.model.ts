@@ -1,13 +1,10 @@
 import {z} from "zod";
 import { FormatedPost } from "./schemas.model";
 
-
 export type Res<T> = {
     ok: boolean,
     data:T
 }
-
-
 export const querySchema = z.object({
     page:z.string().default("1"),
     limit: z.string().default("10"),
@@ -15,9 +12,7 @@ export const querySchema = z.object({
     orderBy:z.enum(["createdAt", "likesCount"]).default("createdAt"),
     order:z.enum(["asc", "desc"]).default("asc")
 })
-
 export type Query = z.infer< typeof querySchema >
-
 export interface Err{
     message?:string, 
     error:boolean,
@@ -27,7 +22,6 @@ export interface Err{
     name?:string,
     stack?:string
 }
-
 export type Pagination = {
     page:number,
     pageSize:number,

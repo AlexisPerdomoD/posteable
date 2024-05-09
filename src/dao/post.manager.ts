@@ -65,6 +65,7 @@ export default class PostManager {
             )
             const totalCount = await client.query(countQuery)
             const totalCountNumber = parseInt(totalCount.rows[0].count, 10)
+            const totalPage = Math.ceil((totalCountNumber || 0) / limitNumber)
             return {
                 ok: true,
                 data: response.rows,
@@ -75,11 +76,13 @@ export default class PostManager {
                             ? limitNumber
                             : totalCountNumber,
                     totalItems: totalCountNumber,
-                    totalPages: Math.ceil(
-                        (totalCountNumber || 0) / limitNumber
-                    ),
-                    nextPage: null,
-                    previusPage: null,
+                    totalPages: totalPage,
+                    nextPage:
+                        pageNumber <= totalPage
+                            ? (pageNumber - 1).toString()
+                            : null,
+                    previusPage:
+                        pageNumber > 1 ? (pageNumber - 1).toString() : null,
                 },
             }
         } catch (error) {
@@ -173,7 +176,10 @@ export default class PostManager {
             }
         }
     }
-    async getPostsLikedByUser(u: User, querys: Query):Promise<PostsResponse | Err> {
+    async getPostsLikedByUser(
+        u: User,
+        querys: Query
+    ): Promise<PostsResponse | Err> {
         try {
             const client = await this.#getDB()
             const { orderBy, order, limit, page } = querys
@@ -183,7 +189,7 @@ export default class PostManager {
                 isNaN(parseInt(limit)) && parseInt(limit) < 0
                     ? 1
                     : parseInt(limit)
-            const offset = pageNumber === 1 ? 0  : (pageNumber - 1) * limitNumber
+            const offset = pageNumber === 1 ? 0 : (pageNumber - 1) * limitNumber
             const SQLQuery: QueryConfig = {
                 text: `
                     SELECT p.id, p.content, u.username AS username,
@@ -208,6 +214,7 @@ export default class PostManager {
             )
             const totalCount = await client.query(countQuery)
             const totalCountNumber = parseInt(totalCount.rows[0].count, 10)
+            const totalPage = Math.ceil((totalCountNumber || 0) / limitNumber)
             return {
                 ok: true,
                 data: response.rows,
@@ -218,11 +225,13 @@ export default class PostManager {
                             ? limitNumber
                             : totalCountNumber,
                     totalItems: totalCountNumber,
-                    totalPages: Math.ceil(
-                        (totalCountNumber || 0) / limitNumber
-                    ),
-                    nextPage: null,
-                    previusPage: null,
+                    totalPages: totalPage,
+                    nextPage:
+                        pageNumber <= totalPage
+                            ? (pageNumber - 1).toString()
+                            : null,
+                    previusPage:
+                        pageNumber > 1 ? (pageNumber - 1).toString() : null,
                 },
             }
         } catch (error) {
@@ -258,7 +267,7 @@ export default class PostManager {
             }
         }
     }
-    async getFormatedPostById(id: number):Promise<Res<FormatedPost> | Err> {
+    async getFormatedPostById(id: number): Promise<Res<FormatedPost> | Err> {
         try {
             const client = await this.#getDB()
             const query: QueryConfig = {
@@ -317,7 +326,7 @@ export default class PostManager {
             }
         }
     }
-    async getPostById(id: number):Promise<Res<Post> | Err> {
+    async getPostById(id: number): Promise<Res<Post> | Err> {
         try {
             const client = await this.#getDB()
             const query: QueryConfig = {
@@ -409,8 +418,38 @@ export default class PostManager {
             }
         }
     }
+    async deletePost(post:Post):Promise< void | Err>{
+        try{
+            const client = await this.#getDB()
+            await client.query(`"DELETE FROM "Posts" WHERE id = $1;`, [post.id])
+        }catch(error){
+            logger.debug(error)
+            if(error instanceof Error) {
+                logger.error(`
+                    ${error.name}
+                    ${error.message}
+                    ${error.cause}
+                }`)
+                return {
+                    error: true,
+                    status: 500,
+                    cause: error.message,
+                    message: "something whent wrong",
+                    name: error.name,
+                    stack: error.stack,
+                }
+            }
+            logger.log("fatal", "Error: there was not posible to get Error information")
+            return  {
+                error: true,
+                message: "internal error server",
+                status: 500,
+            }
+
+
+        }
+    }
 }
 
 // para buscar post a los cuales un usuario en especifico ha dado like
 //WHERE l.user_id = id_usuario_especifico
-
