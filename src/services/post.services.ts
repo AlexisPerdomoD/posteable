@@ -68,7 +68,7 @@ export const getLikedPostsCtr = async (req: Request, res: Response) => {
             status: r.status,
             cause: r.cause,
         })
-    return r
+    return res.send(r)
 }
 export const createPostCtr = async (req: Request, res: Response) => {
     const currentUser = checkToken(req)

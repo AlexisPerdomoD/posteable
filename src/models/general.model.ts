@@ -27,8 +27,8 @@ export type Pagination = {
     pageSize:number,
     totalItems:number | null,
     totalPages:number,
-    nextPage:string | null,
-    previusPage:string | null
+    nextPage:number | null,
+    previusPage:number | null
 }
 export interface PostsResponse{
     ok:boolean,

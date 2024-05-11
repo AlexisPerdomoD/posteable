@@ -8,7 +8,6 @@ export default class PostManager {
     constructor(getDB: () => Promise<PoolClient>) {
         this.#getDB = getDB
     }
-    //todo
     async getPosts(querys: Query): Promise<PostsResponse | Err> {
         try {
             const client = await this.#getDB()
@@ -79,10 +78,10 @@ export default class PostManager {
                     totalPages: totalPage,
                     nextPage:
                         pageNumber <= totalPage
-                            ? (pageNumber - 1).toString()
+                            ? (pageNumber - 1)
                             : null,
                     previusPage:
-                        pageNumber > 1 ? (pageNumber - 1).toString() : null,
+                        pageNumber > 1 ? (pageNumber - 1) : null,
                 },
             }
         } catch (error) {
@@ -204,7 +203,7 @@ export default class PostManager {
             }
             const countQuery: QueryConfig = {
                 text: `
-                SELECT COUNT(*) FROM "Post" AS p
+                SELECT COUNT(*) FROM "Posts" AS p
                 INNER JOIN "Likes" AS l ON l.post_id = p.id
                 WHERE l.user_id = $1;`,
                 values: [u.id],
@@ -228,10 +227,10 @@ export default class PostManager {
                     totalPages: totalPage,
                     nextPage:
                         pageNumber <= totalPage
-                            ? (pageNumber - 1).toString()
+                            ? (pageNumber + 1)
                             : null,
                     previusPage:
-                        pageNumber > 1 ? (pageNumber - 1).toString() : null,
+                        pageNumber > 1 ? (pageNumber - 1) : null,
                 },
             }
         } catch (error) {
@@ -330,7 +329,7 @@ export default class PostManager {
         try {
             const client = await this.#getDB()
             const query: QueryConfig = {
-                text: `SELECT * FROM "Post" WHERE id = $1`,
+                text: `SELECT * FROM "Posts" WHERE id = $1`,
                 values: [id],
             }
             const response: QueryResult<Post> = await client.query(query)

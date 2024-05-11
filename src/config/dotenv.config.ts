@@ -12,7 +12,8 @@ let {
     PORT,
     SECRET_TOKEN,
     SECRET_COOKIE,
-    MODE
+    MODE,
+    HOST
 } = process.env
 export default {
     PGHOST,
@@ -23,6 +24,7 @@ export default {
     PORT,
     SECRET_TOKEN,
     SECRET_COOKIE,
-    MODE
+    MODE,
+    HOST
 }
 

@@ -10,29 +10,6 @@ import  jwt  from 'jsonwebtoken';
 import logger from "../config/logger.config";
 const um = factory.um()
 
-{{{/*
-GET /me (Ver Perfil de Usuario)
-
-    Descripción: Muestra el perfil del usuario autenticado.
-    Respuesta:
-        200 OK: Información del perfil en formato JSON.
-        401 Unauthorized: Si el usuario no está autenticado.
-    Ejemplo de Respuesta:
-
-    {
-      "ok": true,
-      "data": {
-        "id": 2,
-        "username": "miUsuario",
-        "email": "miemail@example.com",
-        "firstName": "Nombre",
-        "lastName": "Apellido",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 10:37:16-08"
-      }
-    }
-
- }}}*/}}}
 export const getUserCtr = async(req:Request, res:Response)=>{
     const currentUser:TokenInfo | Err = checkToken(req)
     if("error" in currentUser)return res.status(currentUser.status).send({
