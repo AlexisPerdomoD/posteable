@@ -30,8 +30,8 @@ Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica
     <img width="48" height="48" src="https://img.icons8.com/plumpy/48/json.png" alt="JWT"/>
     <img width="48" height="48" src="https://img.icons8.com/color/48/sql.png" alt="SQL"/>
     <img width="48" height="48" src="https://img.icons8.com/color/48/postgreesql.png" alt="PostGreSQL"/>
-    <img width="48" height="48" src="https://img.icons8.com/color/48/java-web-token.png" alt="java-web-token"/>
 </div>
+
 ## Requisitos
 Es necesario tener Node js, npm, y PostgreSQL instalados en tu entorno de desarrollo.
 ## Setup
@@ -106,67 +106,67 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `200 OK`: Lista paginada de posts en formato JSON.
   - **Ejemplo de Respuesta**:
     ```json
+{
+  "ok": true,
+  "data": [
     {
-      "ok": true,
-      "data": [
-        {
-          "id": 1,
-          "content": "Este es un el contenido de un post",
-          "createdAt": "2024-01-19 07:37:16-08",
-          "updatedAt": "2024-01-19 07:37:16-08",
-          "username": "testino",
-          "likesCount": 5
-        },
-        ...
-      ],
-      "pagination": {
-        "page": 1,
-        "pageSize": 10,
-        "totalItems": 20,
-        "totalPages": 2,
-        "nextPage": 2,
-        "previousPage": null
-      }
-    }
-    ```
-  - **Ejemplo de Uso**:
-    Para obtener la segunda página de posts, limitando a 5 posts por página, filtrando por el usuario 'usuarioEjemplo', ordenados por número de likes en orden descendente:
-    `GET /?page=2&limit=5&username=usuarioEjemplo&orderBy=likesCount&order=desc`
+      "id": 1,
+      "content": "Este es un el contenido de un post",
+      "createdAt": "2024-01-19 07:37:16-08",
+      "updatedAt": "2024-01-19 07:37:16-08",
+      "username": "testino",
+      "likesCount": 5
+    },
+    ...
+  ],
+  "pagination": {
+    "page": 1,
+    "pageSize": 10,
+    "totalItems": 20,
+    "totalPages": 2,
+    "nextPage": 2,
+    "previousPage": null
+  }
+}
+```
+- **Ejemplo de Uso**:
+Para obtener la segunda página de posts, limitando a 5 posts por página, filtrando por el usuario 'usuarioEjemplo', ordenados por número de likes en orden descendente:
+`GET /?page=2&limit=5&username=usuarioEjemplo&orderBy=likesCount&order=desc`
 ##### GET /likes (Ver Posts likeados del Usuario Registrado)
 
 - **Descripción**: Muestra los post a los cuales el usuario registrado a agregado un like, pueden ser posts propios tanto como de otras personas.
 - **Parámetros Query**:
-  - `page`: Número de página (opcional, por defecto 1).
-  - `limit`: Número de posts por página (opcional, por defecto 10).
-  - `orderBy`: Criterio de ordenación, opciones: createdAt, likesCount (opcional, por defecto createdAt).
-  - `order`: Dirección de la ordenación, opciones: asc, desc (opcional, por defecto asc).
+- `page`: Número de página (opcional, por defecto 1).
+- `limit`: Número de posts por página (opcional, por defecto 10).
+- `orderBy`: Criterio de ordenación, opciones: createdAt, likesCount (opcional, por defecto createdAt).
+- `order`: Dirección de la ordenación, opciones: asc, desc (opcional, por defecto asc).
 - **Respuesta**:
-  - `200 OK`: Lista de posts del usuario en formato JSON.
-  - `401 si no se ha autenticado el usuario en cuestion.`
-  - **Ejemplo de Respuesta**:
-    ```json
+- `200 OK`: Lista de posts del usuario en formato JSON.
+- `401 si no se ha autenticado el usuario en cuestion.`
+- **Ejemplo de Respuesta**:
+```json
+{
+  "ok": true,
+  "data": [
     {
-      "ok": true,
-      "data": [
-        {
-          "id": 2,
-          "content": "Post del usuario",
-          "createdAt": "2024-01-19 05:37:16-08",
-          "updatedAt": "2024-01-19 05:37:16-08",
-          "username": "usuario-específico",
-          "likesCount": 0
-        },
-        ...
-      ],
-      "pagination": {
-        "page": 1,
-        "pageSize": 10,
-        "totalItems": 5,
-        "totalPages": 1,
-        "nextPage": null,
-        "previousPage": null
-      }
-    }
+      "id": 2,
+      "content": "Post del usuario",
+      "createdAt": "2024-01-19 05:37:16-08",
+      "updatedAt": "2024-01-19 05:37:16-08",
+      "username": "usuario-específico",
+      "likesCount": 0
+    },
+    ...
+  ],
+  "pagination": {
+    "page": 1,
+    "pageSize": 10,
+    "totalItems": 5,
+    "totalPages": 1,
+    "nextPage": null,
+    "previousPage": null
+  }
+}
     ```
 
 #### Interacción de Usuarios Registrados
@@ -181,17 +181,17 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `401 Unauthorized`: Si el usuario no está autenticado.
   - **Ejemplo de Respuesta**:
     ```json
-    {
-      "ok": true,
-      "data": {
-        "id": 10,
-        "content": "Mi nuevo post",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 10:37:16-08",
-        "username": "mi-usuario",
-        "likesCount": 0
-      }
-    }
+{
+  "ok": true,
+  "data": {
+    "id": 10,
+    "content": "Mi nuevo post",
+    "createdAt": "2024-01-19 10:37:16-08",
+    "updatedAt": "2024-01-19 10:37:16-08",
+    "username": "mi-usuario",
+    "likesCount": 0
+  }
+}
 ##### PATCH /posts/:id (Editar Post Existente)
 
 - **Descripción**: Permite a un usuario registrado editar un post existente.
@@ -206,18 +206,18 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `404 Not Found`: Si el post no existe.
   - **Ejemplo de Respuesta**:
     ```json
-    {
-      "ok": true,
-      "data": {
-        "id": 10,
-        "content": "Mi post actualizado",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 11:00:00-08",
-        "username": "mi-usuario",
-        "likesCount": 0
-      }
-    }
-    ```
+{
+  "ok": true,
+  "data": {
+    "id": 10,
+    "content": "Mi post actualizado",
+    "createdAt": "2024-01-19 10:37:16-08",
+    "updatedAt": "2024-01-19 11:00:00-08",
+    "username": "mi-usuario",
+    "likesCount": 0
+  }
+}
+```
     ##### POST /posts/:postId/like (Dar Like a un Post)
 
 - **Descripción**: Permite a un usuario registrado dar "Like" a un post.
@@ -229,17 +229,17 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `401 Unauthorized`: Si el usuario no está autenticado.
   - **Ejemplo de Respuesta**:
     ```json
-    {
-      "ok": true,
-      "data": {
-        "id": 15,
-        "content": "Mi nuevo post",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 10:37:16-08",
-        "username": "usuario",
-        "likesCount": 1
-      }
-    }
+{
+  "ok": true,
+  "data": {
+    "id": 15,
+    "content": "Mi nuevo post",
+    "createdAt": "2024-01-19 10:37:16-08",
+    "updatedAt": "2024-01-19 10:37:16-08",
+    "username": "usuario",
+    "likesCount": 1
+  }
+}
     ```
 
 ##### DELETE /posts/:postId/like (Eliminar Like de un Post)
@@ -252,19 +252,19 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `404 Not Found`: Si el post no existe o no tenía like previamente.
   - `401 Unauthorized`: Si el usuario no está autenticado.
   - **Ejemplo de Respuesta**:
-    ```json
-    {
-      "ok": true,
-      "data": {
-        "id": 15,
-        "content": "Mi nuevo post",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 10:37:16-08",
-        "username": "usuario",
-        "likesCount": 0
-      }
-    }
-    ```
+```json
+{
+  "ok": true,
+  "data": {
+    "id": 15,
+    "content": "Mi nuevo post",
+    "createdAt": "2024-01-19 10:37:16-08",
+    "updatedAt": "2024-01-19 10:37:16-08",
+    "username": "usuario",
+    "likesCount": 0
+  }
+}
+```
 
 #### Registro y Autenticación de Usuarios
 
@@ -278,19 +278,19 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `400 Bad Request`: Si falta información o el formato es incorrecto.
   - **Ejemplo de Respuesta**:
     ```json
-    {
-      "ok": true,
-      "data": {
-        "id": 20,
-        "username": "nuevoUsuario",
-        "email": "un-mail@example.com",
-        "firstName": "Nombre",
-        "lastName": "Apellido",
-        "createdAt": "2024-01-19 10:37:16-08",
-        "updatedAt": "2024-01-19 10:37:16-08"
-      }
-    }
-    ```
+{
+  "ok": true,
+  "data": {
+    "id": 20,
+    "username": "nuevoUsuario",
+    "email": "un-mail@example.com",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "createdAt": "2024-01-19 10:37:16-08",
+    "updatedAt": "2024-01-19 10:37:16-08"
+  }
+}
+```
 
 ##### POST /login (Iniciar Sesión)
 
@@ -302,13 +302,13 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `401 Unauthorized`: Credenciales incorrectas.
   - **Ejemplo de Respuesta**:
     ```json
-    {
-      "ok": true,
-      "data": {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5..."
-      }
-    }
-    ```
+{
+  "ok": true,
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5..."
+  }
+}
+```
 
 #### Gestión de Perfil de Usuario
 
