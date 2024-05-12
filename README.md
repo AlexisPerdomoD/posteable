@@ -23,7 +23,7 @@ Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica
 ## Tecnologias Usadas
 > Esta aplicación usa como tecnologias principales, Node js como entorno de desarrollo, Typescript para validación de modelos y errores, Express como framework, JSON Web Token para el manejo de sesiones, para el sistema de persistencia se ha utilizado PostgreSQL y para ciertos test unitarios se ha usado Vitest.
 
-<div style="{display:'flex',justify-content:'space-evenly'}">
+<div align="center" style="display:flex;">
     <img width="48" height="48" src="https://img.icons8.com/color/48/nodejs.png" alt="NODE js"/>  
     <img width="48" height="48" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-typescript-an-open-source-programming-language-developed-and-maintained-by-microsoft-logo-color-tal-revivo.png" alt="Typescript"/>
     <img width="48" height="48" src="https://img.icons8.com/offices/30/express-js.png" alt="express js"/>
