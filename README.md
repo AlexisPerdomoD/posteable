@@ -104,8 +104,8 @@ adicionalmente Posteable maneja la capa de modelos y esquemas complementaria par
   - `order`: Dirección de la ordenación, opciones: asc, desc (opcional, por defecto asc).
 - **Respuesta**:
   - `200 OK`: Lista paginada de posts en formato JSON.
-  - **Ejemplo de Respuesta**:
-    ```json
+  - **Ejemplo de Respuesta**
+ ```json
 {
   "ok": true,
   "data": [
@@ -167,7 +167,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
     "previousPage": null
   }
 }
-    ```
+```
 
 #### Interacción de Usuarios Registrados
 ##### POST /posts (Crear Nuevo Post)
@@ -180,7 +180,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   - `400 Bad Request`: Si falta información o el formato es incorrecto.
   - `401 Unauthorized`: Si el usuario no está autenticado.
   - **Ejemplo de Respuesta**:
-    ```json
+ ```json
 {
   "ok": true,
   "data": {
@@ -192,6 +192,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
     "likesCount": 0
   }
 }
+```
 ##### PATCH /posts/:id (Editar Post Existente)
 
 - **Descripción**: Permite a un usuario registrado editar un post existente.
@@ -205,7 +206,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   - `401 Unauthorized`: Si el usuario no está autenticado o no es el propietario del post.
   - `404 Not Found`: Si el post no existe.
   - **Ejemplo de Respuesta**:
-    ```json
+ ```json
 {
   "ok": true,
   "data": {
@@ -218,7 +219,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   }
 }
 ```
-    ##### POST /posts/:postId/like (Dar Like a un Post)
+ ##### POST /posts/:postId/like (Dar Like a un Post)
 
 - **Descripción**: Permite a un usuario registrado dar "Like" a un post.
 - **Parámetros**:
@@ -228,7 +229,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   - `404 Not Found`: Si el post no existe.
   - `401 Unauthorized`: Si el usuario no está autenticado.
   - **Ejemplo de Respuesta**:
-    ```json
+ ```json
 {
   "ok": true,
   "data": {
@@ -240,7 +241,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
     "likesCount": 1
   }
 }
-    ```
+ ```
 
 ##### DELETE /posts/:postId/like (Eliminar Like de un Post)
 
@@ -277,7 +278,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   - `201 Created`: Cuenta creada.
   - `400 Bad Request`: Si falta información o el formato es incorrecto.
   - **Ejemplo de Respuesta**:
-    ```json
+ ```json
 {
   "ok": true,
   "data": {
@@ -301,7 +302,7 @@ Para obtener la segunda página de posts, limitando a 5 posts por página, filtr
   - `200 OK`: Sesión iniciada, retorna token JWT.
   - `401 Unauthorized`: Credenciales incorrectas.
   - **Ejemplo de Respuesta**:
-    ```json
+ ```json
 {
   "ok": true,
   "data": {
