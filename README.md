@@ -4,13 +4,13 @@ Posteable API REST pretende ser una solución simple y eficiente para el nucleo 
 Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica, en un resturante, algún sistema de seguimiento de estado de usuarios o incluso una pequeña red social.
 > Este proyecto es considerado totalmente open source siendo bienvenido cualquier aporte externo que pueda ser posteble una solución más poderosa! 🔥 
  ## Indice
-[Principales Features](#principales-features)
-[Tecnologias Usadas](#tecnologias)
-[Requisitos](#requisitos)
-[Setup](#setup)
-[Endpoints](#endpoints)
-[Autenticación](#autenticación)
-[Contribuciones](#contribuciones)
+1. [Principales Features](#principales-features)
+2. [Tecnologias Usadas](#tecnologias)
+3. [Requisitos](#requisitos)
+4. [Setup](#setup)
+5. [Endpoints](#endpoints)
+6. [Autenticación](#autenticación)
+7. [Contribuciones](#contribuciones)
  ## Principales Features
 * Manejo de base de datos SQL para manejar una colección de posts y usuarios que interactuan con ellos, manejando por default el update y delete automatico en base a la modificación de la información de usuarios.
 
@@ -23,7 +23,7 @@ Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica
 ## Tecnologias Usadas
 > Esta aplicación usa como tecnologias principales, Node js como entorno de desarrollo, Typescript para validación de modelos y errores, Express como framework, JSON Web Token para el manejo de sesiones, para el sistema de persistencia se ha utilizado PostgreSQL y para ciertos test unitarios se ha usado Vitest.
 
-<div style="display: flex; justify-content: center; flex-wrap:wrap; column-gap:8px;">
+<div style="display: flex; justify-content:space-evenly;">
     <img width="48" height="48" src="https://img.icons8.com/color/48/nodejs.png" alt="NODE js"/>  
     <img width="48" height="48" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-typescript-an-open-source-programming-language-developed-and-maintained-by-microsoft-logo-color-tal-revivo.png" alt="Typescript"/>
     <img width="48" height="48" src="https://img.icons8.com/offices/30/express-js.png" alt="express js"/>
