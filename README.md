@@ -24,15 +24,14 @@ Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica
 > Esta aplicación usa como tecnologias principales, Node js como entorno de desarrollo, Typescript para validación de modelos y errores, Express como framework, JSON Web Token para el manejo de sesiones, para el sistema de persistencia se ha utilizado PostgreSQL y para ciertos test unitarios se ha usado Vitest.
 
 <div style="display: flex; justify-content: center; flex-wrap:wrap; column-gap:8px;">
-![NODE js](https://img.icons8.com/color/48/nodejs.png)  
-![Typescript](https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-typescript-an-open-source-programming-language-developed-and-maintained-by-microsoft-logo-color-tal-revivo.png)
-![express js](https://img.icons8.com/offices/30/express-js.png)
-![JWT](https://img.icons8.com/plumpy/48/json.png)
-![SQL](https://img.icons8.com/color/48/sql.png)
-![PostGreSQL](https://img.icons8.com/color/48/postgreesql.png)
-![vitest]()
+    <img width="48" height="48" src="https://img.icons8.com/color/48/nodejs.png" alt="NODE js"/>  
+    <img width="48" height="48" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-typescript-an-open-source-programming-language-developed-and-maintained-by-microsoft-logo-color-tal-revivo.png" alt="Typescript"/>
+    <img width="48" height="48" src="https://img.icons8.com/offices/30/express-js.png" alt="express js"/>
+    <img width="48" height="48" src="https://img.icons8.com/plumpy/48/json.png" alt="JWT"/>
+    <img width="48" height="48" src="https://img.icons8.com/color/48/sql.png" alt="SQL"/>
+    <img width="48" height="48" src="https://img.icons8.com/color/48/postgreesql.png" alt="PostGreSQL"/>
+    <img width="48" height="48" src="https://img.icons8.com/color/48/java-web-token.png" alt="java-web-token"/>
 </div>
-<img width="48" height="48" src="https://img.icons8.com/color/48/java-web-token.png" alt="java-web-token"/>
 ## Requisitos
 Es necesario tener Node js, npm, y PostgreSQL instalados en tu entorno de desarrollo.
 ## Setup
