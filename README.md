@@ -63,7 +63,7 @@ HOST='*'
 
 * HOST: hace referencia al host donde posteable tendra permitido servir respuestas, principalmente importante para la configuración CORS de posteble.
 
-* Secrets: Tanto SECRET_TOKEN y SECRET_COOKIE hacen referencia a cadenas de caracteres, relacionado a la implementación de autenticación deposteable, mediante las cuales se verificará la firma al momento de verificar tokens y cookies.
+* Secrets: Tanto SECRET_TOKEN y SECRET_COOKIE hacen referencia a cadenas de caracteres, relacionado a la implementación de autenticación de posteable, mediante las cuales se verificará la firma al momento de verificar tokens y cookies.
 
 ### 2) Base de datos 
 Para usar esta aplicación es necesario tener bien sea instalado postgres en tu computadora o manejar una base ya hosteada en algun lugar y asi poder crear una base de datos donde podras insertar el que será el contenido de esa base de datos ubicada en el directorio data/db.sql.
