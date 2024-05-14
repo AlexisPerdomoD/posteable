@@ -1,5 +1,5 @@
 # Posteable
-Posteable API REST pretende ser una solución simple y eficiente para el nucleo de alguna implementación en donde sea necesario manejar unn grupo de usuarios capaces de incluir en un mismo lugar información relevante como parte de una aplicación mas grande. 
+Posteable API REST pretende ser una solución simple y eficiente para el nucleo de alguna implementación en donde sea necesario manejar un grupo de usuarios capaces de incluir en un mismo lugar información relevante como parte de una aplicación mas grande. 
 
 Ejemplos de esto podrian ser una pagina de comentarios en una tienda electronica, en un resturante, algún sistema de seguimiento de estado de usuarios o incluso una pequeña red social.
 > Este proyecto es considerado totalmente open source siendo bienvenido cualquier aporte externo que pueda ser posteble una solución más poderosa! 🔥 
